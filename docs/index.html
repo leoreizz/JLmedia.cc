@@ -1,1 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JL Media - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: #1a1f2e url('https://transparenttextures.com/patterns/az-subtle.png') repeat; /* Texture over #1a1f2e */
+            color: #b0b0c0; /* Grayish text */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-size: 16px;
+        }
+        .container {
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px;
+            background: #00000088 url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmlkZW8lMjBlZGl0aW5nfGVufDB8fDB8fHww') no-repeat center center;
+            background-blend-mode: overlay;
+            background-size: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            height: 150px;
+        }
+        .agency-name {
+            font-size: 3em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .all-title {
+            font-size: 1.5em;
+            margin-top: -20px;
+            margin-bottom: 20px;
+        }
+        .ctt-title {
+            font-size: 2em;
+            margin-top: -20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .current-working-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .current-working {
+            padding: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            background: #1f273b; /* Darker blue/violet */
+            border-radius: 10px;
+        }
+        .channel-item {
+            padding: 10px;
+            border-radius: 10px;
+            width: 120px;
+            text-align: center;
+        }
+        .channel-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .channel-item strong {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e0e0f0; /* Whiter bold text */
+        }
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .member {
+            padding: 20px;
+            width: 150px;
+            border-radius: 15px;
+            background: #1f273b; /* Darker blue/violet */
+            transition: transform 0.3s;
+        }
+        .member:hover {
+            transform: scale(1.05);
+        }
+        .member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .member strong {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e0e0f0; /* Whiter bold text */
+        }
+        .projects {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .project-column {
+            flex: 1;
+            padding: 20px;
+            border-radius: 15px;
+            background: #1f273b; /* Darker blue/violet */
+            min-width: 300px;
+            max-width: 48%;
+        }
+        .project-item {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-item {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+        }
+        .shorts-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+            background: transparent; /* Transparent background for shorts container */
+        }
+        .short-item {
+            position: relative;
+            width: 100%;
+            padding-top: 177.78%; /* 9:16 Aspect Ratio */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: transparent; /* Transparent background for shorts */
+        }
+        .short-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .previous-projects {
+            padding: 20px;
+            border-radius: 15px;
+            background: #1f273b; /* Darker blue/violet */
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Added flex-wrap for better responsiveness */
+        }
+        .contact {
+            padding: 20px;
+            background: #1f273b; /* Darker blue/violet */
+            border-radius: 15px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer a, .contact a {
+            padding: 10px 15px;
+            border: 1px solid #6a7090; /* Adjusted footer border color */
+            border-radius: 8px;
+            background: #3a4060; /* Darker violet */
+            color: #b0c0e0; /* Lighter grayish blue */
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 5px 0;
+        }
+        .footer a:hover, .contact a:hover {
+            background: #6a7090; /* Lighter violet on hover */
+            color: #ffffff;
+        }
+        .footer a i, .contact a i {
+            font-size: 1.2em;
+        }
+        @media (max-width: 768px) {
+            .projects, .contact {
+                flex-direction: column;
+                align-items: center;
+            }
+            .member, .project-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .project-column {
+                max-width: 100%;
+            }
+            .contact-column {
+                width: 100%;
+            }
+            .video-item {
+                padding-top: 56.25%; /* Mantido para proporção de vídeo */
+            }
+            .short-item {
+                padding-top: 177.78%; /* Mantido para proporção de shorts */
+            }
+            .container {
+                padding: 10px;
+            }
+            /* Ajustes para channel-item dentro de current-working e previous-projects */
+            .current-working, .previous-projects {
+                flex-direction: row; /* Alterado para linha para permitir o wrap */
+                justify-content: center;
+            }
+            .current-working .channel-item,
+            .previous-projects .channel-item {
+                width: calc(50% - 20px); /* Dois itens por linha com espaçamento */
+                max-width: 150px; /* Limita a largura máxima para melhor apresentação */
+            }
+        }
 
+        @media (max-width: 480px) {
+            .current-working .channel-item,
+            .previous-projects .channel-item {
+                width: 100%; /* Empilha os itens em telas muito pequenas */
+                max-width: 180px; /* Ajusta a largura máxima conforme necessário */
+            }
+            .agency-name {
+                font-size: 2.5em; /* Ajuste no tamanho da fonte para telas menores */
+            }
+            .video-item {
+                padding-top: 75%; /* Ajuste para melhor visualização em telas pequenas */
+            }
+            .short-item {
+                padding-top: 200%; /* Ajuste para melhor visualização em telas pequenas */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="agency-name">JL Media</div>
+        </div>
+        <div class="current-working-title">CURRENTLY WORKING WITH</div>
+        <div class="current-working">
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/XwAzxUDZ_unHksXaZle3KsDMhmvdYImpIsIeAL-Ya8tEE_--cx7rY0w7pDD55_AORyhcU0YYag=s176-c-k-c0x00ffffff-no-rj-mo" alt="RL">
+                <div><strong>Rafa e Luiz</strong></div>
+                <div>30.5M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_ki7by_BtT2Y5oamfUCxDTVCudP4TkSZT9xbBqVvQ3bTw=s176-c-k-c0x00ffffff-no-rj-mo" alt="JB">
+                <div><strong>Juliana Baltar</strong></div>
+                <div>19.3M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/6TVSsOuatZw9ybYoMThPDCPf5JowkHIFs4OuRnTeNuJBt_NzXM6FqlqKCxhj4UlotPRiCFeP88c=s176-c-k-c0x00ffffff-no-rj-mo" alt="WF">
+                <div><strong>Wallace Freerunner</strong></div>
+                <div>8.78M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/nRbNDzNK5KExxTjRdJsIoZ92qWsbTj2gsNy7v_K9peDQbYMVw1b3xkV4e5RGy2oHW5o2yxkF=s176-c-k-c0x00ffffff-no-rj-mo" alt="RC">
+                <div><strong>JotaRC</strong></div>
+                <div>709K</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/imdnPHCtzEYlc697VndF5NBPOXEaQZgJoZgbdp0iRfgHP8xqmxcs3bjP4qc1g7LQ_8MMC9zz=s176-c-k-c0x00ffffff-no-rj-mo" alt="LR">
+                <div><strong>Leo Reis</strong></div>
+                <div>18.5K</div>
+            </div>
+        </div>
+        <div class="ctt-title">THE TEAM</div>
+        <div class="team">
+            <div class="member">
+                <img src="media/jota.jpg" alt="Jota">
+                <div><strong>Jota</strong></div>
+                <div>28yo</div>
+                <div>Editing since 2013</div>
+            </div>
+            <div class="member">
+                <img src="media/leor.jpg" alt="Leo">
+                <div><strong>Leo</strong></div>
+                <div>26yo</div>
+                <div>Editing since 2013</div>
+            </div>
+        </div>
+        <div class="all-title">SOME OF OUR WORK</div>
+        <div class="projects">
+            <div class="project-column">
+                <div class="project-item video-item">
+                    <iframe src="https://www.youtube.com/embed/j4gyqzCs2R4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="project-item video-item">
+                    <iframe src="https://www.youtube.com/embed/WZdngxB8CeU" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="project-item video-item">
+                    <iframe src="https://www.youtube.com/embed/akD1Ra1rS4E" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="project-item shorts-container">
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/BN1Qn_UqPFQ?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/xBC-_trnv8o?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/4qVS8C2k8Lc?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/hmH6U7WaEzY?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="project-column">
+                <div class="project-item video-item">
+                    <iframe src="https://www.youtube.com/embed/N63tdpD1Hng" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="project-item video-item">
+                    <iframe src="https://www.youtube.com/embed/X8g3zU_sXfw" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="project-item video-item">
+                    <iframe src="https://www.youtube.com/embed/pTKFPlLKcIY" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="project-item shorts-container">
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/IpZBUaW_G_o?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/ztFURxGgrM4?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/jzCtx_0J6X4?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="short-item">
+                        <iframe src="https://www.youtube.com/embed/7DMAoQnxDaE?feature=shorts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="all-title">CREATORS WE'VE WORKED WITH</div>
+        <div class="previous-projects">
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/TM2B8fox4psUylHci3U1rdF9KCX-pyCeKf-jnkenmIeUkUrpuUiMWAIR-HGsnX2qjC8cgO_8Uw=s176-c-k-c0x00ffffff-no-rj-mo" alt="Prev3">
+                <div><strong>Invento na Hora</strong></div>
+                <div>14.2M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/1rTygw9EZmdTe6Ll2DePO4a71SkuqQJWLjL6G3whra9RFTQaKJIzCkro70V5axklQUOFJZ5C=s176-c-k-c0x00ffffff-no-rj-mo" alt="Prev4">
+                <div><strong>Piuzinho</strong></div>
+                <div>12.9M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_n6dIVrt6h6nYhCdtOOmoby-o53FnocGDMJ_QsHGKUV8xg=s176-c-k-c0x00ffffff-no-rj-mo" alt="Prev2">
+                <div><strong>Sheviii2k</strong></div>
+                <div>1.69M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_m2YT6izex1j6pYbvOLkvVsvK5Ac7F0dUW9a6EH9O7drA=s176-c-k-c0x00ffffff-no-rj-mo" alt="Prev1">
+                <div><strong>BaroneLab</strong></div>
+                <div>1.68M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/yV9rPJo03zIwYlQHa15GU8cxyNoCiLo-TGBk3UwLeY9IUPbtEqRSalquyVJGYJxkhr1m26RWow=s176-c-k-c0x00ffffff-no-rj-mo" alt="Prev4">
+                <div><strong>Victor Dias TV</strong></div>
+                <div>1.47M</div>
+            </div>
+            <div class="channel-item">
+                <img src="https://yt3.ggpht.com/4zrcjbo0PWQECIL8U1ZFcZw7ZgpCW7vnKRGe8HNNy47kCA3A45DQOuPtQhunAOyJ6jpghGrcYA=s176-c-k-c0x00ffffff-no-rj-mo" alt="Prev4">
+                <div><strong>Jovem Gordo</strong></div>
+                <div>120K</div>
+            </div>
+        </div>
+        <div class="ctt-title">CONTACT</div>
+        <div class="contact">
+            <div class="contact-column">
+                <a href="https://instagram.com/jotarcyt" target="_blank"><i class="bi bi-instagram"></i> JotaRCyt</a>
+                <a href="mailto:juliodmdk@gmail.com" target="_blank"><i class="bi bi-envelope"></i> juliodmdk@gmail.com</a>
+            </div>
+            <div class="contact-column">
+                <a href="https://instagram.com/leoreis_cs" target="_blank"><i class="bi bi-instagram"></i> LeoReis_CS</a>
+                <a href="mailto:contatoleoreis@hotmail.com" target="_blank"><i class="bi bi-envelope"></i> contatoleoreis@hotmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity if needed
+    </script>
+</body>
+</html>
